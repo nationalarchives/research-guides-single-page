@@ -1,6 +1,9 @@
 <div>
-  <h1>
-    Welcome to {{title}}!
-  </h1>
+    <h1>
+        {{title}}
+    </h1>
+    <ul>
+        <li *ngFor="let guide of guides">{{guide.name}}</li>
+    </ul>
 </div>
 
