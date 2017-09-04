@@ -3,7 +3,11 @@
         {{title}}
     </h1>
     <ul>
-        <li *ngFor="let guide of guides">{{guide.name}}</li>
+        <li *ngFor="let guide of guides">
+            <a href="{{guide.href}}">{{guide.name}}</a>
+            <span *ngIf="guide.recommended">Recommended</span>
+            <span *ngIf="guide.all_records_available_online">All records available online</span>
+        </li>
     </ul>
 </div>
 
