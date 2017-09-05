@@ -2,8 +2,10 @@
     <h1>
         {{title}}
     </h1>
+    <input id="showRecommendedOnly" type="checkbox" (change)="changeShowingRecommendedOnly()">
+    <label for="showRecommendedOnly">Show recommended guides only</label>
     <ul>
-        <li *ngFor="let guide of guides">
+        <li *ngFor="let guide of (guides | isRecommended: showRecommendedOnly)">
             <a href="{{guide.href}}">{{guide.name}}</a>
             <span *ngIf="guide.recommended">Recommended</span>
             <span *ngIf="guide.all_records_available_online">All records available online</span>

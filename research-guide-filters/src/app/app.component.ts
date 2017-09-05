@@ -13,6 +13,14 @@ export class AppComponent {
     title = 'Research guides';
     guides = this.guideService.getGuides();
 
+    showRecommendedOnly = false;
+
+    changeShowingRecommendedOnly() {
+        this.showRecommendedOnly = !this.showRecommendedOnly;
+    }
+
+    showingRecommendedOnlyMessage = 'I am in the app component';
+
     constructor(private guideService: GuideService) {
     };
 }
