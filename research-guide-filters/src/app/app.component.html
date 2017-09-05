@@ -1,15 +1,29 @@
-<div>
-    <h1>
-        {{title}}
-    </h1>
-    <input id="showRecommendedOnly" type="checkbox" (change)="changeShowingRecommendedOnly()">
-    <label for="showRecommendedOnly">Show recommended guides only</label>
-    <ul>
-        <li *ngFor="let guide of (guides | isRecommended: showRecommendedOnly)">
-            <a href="{{guide.href}}">{{guide.name}}</a>
-            <span *ngIf="guide.recommended">Recommended</span>
-            <span *ngIf="guide.all_records_available_online">All records available online</span>
-        </li>
-    </ul>
+<div class="row">
+    <div class="col">
+        <input id="showRecommendedOnly" type="checkbox" (change)="changeShowingRecommendedOnly()">
+        <label for="showRecommendedOnly">Show recommended guides only</label>
+    </div>
+    <div class="col-8">
+        <div class="card" *ngFor="let guide of (guides | isRecommended: showRecommendedOnly)">
+            <div class="card-header">
+                {{ guide.name }} <span class="badge badge-info" *ngIf="guide.recommended">Recommended</span>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary btn-sm" href="{{guide.href}}">View this guide</a>
+            </div>
+            <div class="card-footer">
+                <div class="badge badge-info">Something</div>
+            </div>
+        </div>
+        <ul>
+            <li *ngFor="let guide of (guides | isRecommended: showRecommendedOnly)">
+                <a href="{{guide.href}}">{{guide.name}}</a>
+                <span *ngIf="guide.recommended">Recommended</span>
+                <span *ngIf="guide.all_records_available_online">All records available online</span>
+            </li>
+        </ul>
+
+    </div>
 </div>
+
 
