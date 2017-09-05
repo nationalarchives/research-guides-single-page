@@ -13,14 +13,6 @@ export class GuideService {
         return element.querySelector('.research-guide-title-js').href;
     }
 
-    getRecommendedStatus(element): boolean {
-        return /.*rg\-recommended/.test(element.className);
-    }
-
-    getAllAvailableOnlineStatus(element): boolean {
-        return !!element.querySelector('.rg-label-all');
-    }
-
     getGuides(): Guide[] {
 
         let research_guide_elements = document.getElementsByClassName('research-guide-js');
@@ -30,11 +22,9 @@ export class GuideService {
             let element = research_guide_elements[ i ];
 
             let name = this.getGuideName(element);
-            let recommended = this.getRecommendedStatus(element);
             let href = this.getGuideHref(element);
-            let all_records_available_online = this.getAllAvailableOnlineStatus(element);
 
-            guides.push(new Guide(name, recommended, href, all_records_available_online));
+            guides.push(new Guide(name, href));
         }
 
         return guides;

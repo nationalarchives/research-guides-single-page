@@ -2,12 +2,12 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {IsRecommended} from "./is-recommended.pipe";
+import {GuideFilter} from "./guide-filter.pipe";
 
 @NgModule({
     declarations: [
         AppComponent,
-        IsRecommended
+        GuideFilter
     ],
     imports: [
         BrowserModule
