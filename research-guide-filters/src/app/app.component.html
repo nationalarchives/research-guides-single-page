@@ -5,12 +5,18 @@
                 <label for="filterGuides">Filter guides</label>
                 <input type="text" id="filterGuides" [(ngModel)]="filterText">
             </li>
+            <li class="list-group-item">
+                <label for="all-available-online">All records available online</label>
+                <input type="checkbox" id="all-available-online" [(ngModel)]="filterByAllAvailableOnline">
+            </li>
         </ul>
     </div>
     <div class="col-8">
-        <div class="card" *ngFor="let guide of (guides | guideFilter: filterText)">
+        <div class="card" *ngFor="let guide of (guides | guideFilter: filterText | allRecordsAvailableOnlineFilter: filterByAllAvailableOnline)">
             <div class="card-header">
-                {{ guide.name }} <span class="badge badge-info" *ngIf="guide.recommended">Recommended</span>
+                {{ guide.name }}
+                <span class="badge badge-info" *ngIf="guide.recommended">Recommended</span>
+                <span class="badge badge-info" *ngIf="guide.allRecordsAvailableOnline">All records available online</span>
             </div>
             <div class="card-body">
                 <a class="btn btn-primary btn-sm" href="{{guide.href}}">View this guide</a>

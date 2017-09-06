@@ -11,12 +11,8 @@ import {GuideService} from './guide.service';
 
 export class AppComponent {
     guides = this.guideService.getGuides();
-    showRecommendedOnly = false;
     filterText = '';
-
-    changeShowingRecommendedOnly() {
-        this.showRecommendedOnly = !this.showRecommendedOnly;
-    }
+    filterByAllAvailableOnline = false;
 
     constructor(private guideService: GuideService) {
     };

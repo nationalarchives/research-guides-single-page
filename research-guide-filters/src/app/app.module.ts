@@ -4,11 +4,13 @@ import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {GuideFilter} from "./guide-filter.pipe";
+import {AllRecordsAvailableOnlineFilter} from "./all-records-available-online.pipe";
 
 @NgModule({
     declarations: [
         AppComponent,
-        GuideFilter
+        GuideFilter,
+        AllRecordsAvailableOnlineFilter
     ],
     imports: [
         BrowserModule,
