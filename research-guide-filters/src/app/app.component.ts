@@ -11,9 +11,11 @@ import {GuideService} from './guide.service';
 
 export class AppComponent {
     guides = this.guideService.getGuides();
-    filterText = '';
-    filterByAllAvailableOnline = false;
+    filters = {
+        nameContains: '',
+        allAvailableOnline: false
+    };
 
     constructor(private guideService: GuideService) {
-    };
+    }
 }

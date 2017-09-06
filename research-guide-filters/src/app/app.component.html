@@ -3,16 +3,16 @@
         <ul class="list-group">
             <li class="list-group-item">
                 <label for="filterGuides">Filter guides</label>
-                <input type="text" id="filterGuides" [(ngModel)]="filterText">
+                <input type="text" id="filterGuides" [(ngModel)]="filters.nameContains">
             </li>
             <li class="list-group-item">
                 <label for="all-available-online">All records available online</label>
-                <input type="checkbox" id="all-available-online" [(ngModel)]="filterByAllAvailableOnline">
+                <input type="checkbox" id="all-available-online" [(ngModel)]="filters.allOnline">
             </li>
         </ul>
     </div>
     <div class="col-8">
-        <div class="card" *ngFor="let guide of (guides | searchGuideNameFilter: filterText | allRecordsAvailableOnlineFilter: filterByAllAvailableOnline)">
+        <div class="card" *ngFor="let guide of (guides | searchGuideNameFilter: filters.nameContains | allRecordsAvailableOnlineFilter: filters.allOnline)">
             <div class="card-header">
                 {{ guide.name }}
                 <span class="badge badge-info" *ngIf="guide.recommended">Recommended</span>
