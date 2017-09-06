@@ -12,7 +12,7 @@
         </ul>
     </div>
     <div class="col-8">
-        <div class="card" *ngFor="let guide of (guides | guideFilter: filterText | allRecordsAvailableOnlineFilter: filterByAllAvailableOnline)">
+        <div class="card" *ngFor="let guide of (guides | searchGuideNameFilter: filterText | allRecordsAvailableOnlineFilter: filterByAllAvailableOnline)">
             <div class="card-header">
                 {{ guide.name }}
                 <span class="badge badge-info" *ngIf="guide.recommended">Recommended</span>

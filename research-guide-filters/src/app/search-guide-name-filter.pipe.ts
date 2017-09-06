@@ -2,8 +2,8 @@ import {Pipe, PipeTransform} from '@angular/core';
 
 import {Guide} from './guide';
 
-@Pipe({name: 'guideFilter'})
-export class GuideFilter implements PipeTransform {
+@Pipe({name: 'searchGuideNameFilter'})
+export class SearchGuideNameFilter implements PipeTransform {
     transform(allGuides: Guide[], filterText) {
         return allGuides.filter(function (guide) {
 
