@@ -17,6 +17,16 @@ export class GuideService {
         return /.*all\-available\-online\-js/.test(element.className);
     }
 
+    getKeywords(element): string[] {
+        const keywords = [];
+        const els = element.getElementsByClassName('tag');
+        for (let j = 0; j < els.length; j++) {
+            keywords.push(els[j].textContent);
+
+        }
+        return keywords;
+    }
+
     getGuides(): Guide[] {
 
         const research_guide_elements = document.getElementsByClassName('research-guide-js'),
@@ -26,9 +36,10 @@ export class GuideService {
             const element = research_guide_elements[i],
                 name = this.getGuideName(element),
                 href = this.getGuideHref(element),
-                allRecordsAvailableOnline = this.getAllRecordsAvailableOnlineStatus(element);
+                allRecordsAvailableOnline = this.getAllRecordsAvailableOnlineStatus(element),
+                keywords = this.getKeywords(element);
 
-            guides.push(new Guide(name, href, allRecordsAvailableOnline));
+            guides.push(new Guide(name, href, allRecordsAvailableOnline, keywords));
         }
 
         return guides;

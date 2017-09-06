@@ -5,3 +5,21 @@
 .card {
     margin-bottom: 1em;
 }
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio] + label {
+    color: darkgrey;
+    padding: 0.1em 0.3em;
+    border-radius: 0.1em;
+}
+
+#clear-keywords + label {
+    background: lightgrey;
+}
+
+input[type=radio]:checked + label {
+    color: black;
+}

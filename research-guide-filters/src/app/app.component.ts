@@ -13,8 +13,13 @@ export class AppComponent {
     guides = this.guideService.getGuides();
     filters = {
         nameContains: '',
-        allAvailableOnline: false
+        allRecordsAvailableOnline: false,
+        keyword: ''
     };
+
+    addKeywordFilter(event: any) {
+        this.filters.keyword = event.srcElement.textContent;
+    }
 
     constructor(private guideService: GuideService) {
     }

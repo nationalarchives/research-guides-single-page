@@ -7,22 +7,31 @@
             </li>
             <li class="list-group-item">
                 <label for="all-available-online">All records available online</label>
-                <input type="checkbox" id="all-available-online" [(ngModel)]="filters.allOnline">
+                <input type="checkbox" id="all-available-online" [(ngModel)]="filters.allRecordsAvailableOnline">
             </li>
         </ul>
     </div>
     <div class="col-8">
-        <div class="card" *ngFor="let guide of (guides | searchGuideNameFilter: filters.nameContains | allRecordsAvailableOnlineFilter: filters.allOnline)">
+        <div class="card"
+             *ngFor="let guide of (guides | searchGuideNameFilter: filters.nameContains | allRecordsAvailableOnlineFilter: filters.allRecordsAvailableOnline | keywordsFilter: filters.keyword)">
             <div class="card-header">
                 {{ guide.name }}
                 <span class="badge badge-info" *ngIf="guide.recommended">Recommended</span>
-                <span class="badge badge-info" *ngIf="guide.allRecordsAvailableOnline">All records available online</span>
+                <span class="badge badge-info"
+                      *ngIf="guide.allRecordsAvailableOnline">All records available online</span>
             </div>
             <div class="card-body">
                 <a class="btn btn-primary btn-sm" href="{{guide.href}}">View this guide</a>
             </div>
             <div class="card-footer">
-                <div class="badge badge-info">Something</div>
+                <span *ngFor="let keyword of guide.keywords">
+                    <input type="radio" [(ngModel)]="filters.keyword" value="{{keyword}}" id="{{keyword}}">
+                    <label for="{{keyword}}">{{keyword}}</label>
+                </span>
+                <span *ngIf="guide.keywords.length > 0">
+                    <input type="radio" [(ngModel)]="filters.keyword" value="" id="clear-keywords">
+                    <label for="clear-keywords">Clear keywords</label>
+                </span>
             </div>
         </div>
     </div>

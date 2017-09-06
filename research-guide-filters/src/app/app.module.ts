@@ -5,12 +5,14 @@ import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {SearchGuideNameFilter} from "./search-guide-name-filter.pipe";
 import {AllRecordsAvailableOnlineFilter} from "./all-records-available-online.pipe";
+import {KeywordsFilter} from "./keyword-filter.pipe";
 
 @NgModule({
     declarations: [
         AppComponent,
         SearchGuideNameFilter,
-        AllRecordsAvailableOnlineFilter
+        AllRecordsAvailableOnlineFilter,
+        KeywordsFilter
     ],
     imports: [
         BrowserModule,
