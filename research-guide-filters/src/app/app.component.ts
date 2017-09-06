@@ -18,10 +18,6 @@ export class AppComponent {
         this.showRecommendedOnly = !this.showRecommendedOnly;
     }
 
-    changeFilterText(event: any) {
-        this.filterText = event.target.value;
-    }
-
     constructor(private guideService: GuideService) {
     };
 }

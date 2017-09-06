@@ -3,7 +3,7 @@
         <ul class="list-group">
             <li class="list-group-item">
                 <label for="filterGuides">Filter guides</label>
-                <input type="text" id="filterGuides" (keyup)="changeFilterText($event)">
+                <input type="text" id="filterGuides" [(ngModel)]="filterText">
             </li>
         </ul>
     </div>
